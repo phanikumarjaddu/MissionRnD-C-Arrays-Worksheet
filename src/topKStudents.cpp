@@ -21,6 +21,26 @@ struct student {
 	int score;
 };
 
-struct student ** topKStudents(struct student *students, int len, int K) {
+struct student ** topKStudents(struct student *students, int len, int K) 
+{
+	int temp, i, j,p[10];
+	for (i = 1; i<len; i++)
+	{
+		temp = students[i].score;
+		j = i - 1;
+		while (temp<students[j].score && j >= 0)
+		{
+			students[j + 1].score = students[j].score;
+			j = j - 1;
+		}
+		students[j + 1].score = temp;
+	}
+	for (j = 0; j < K; j++)
+	{
+		p[j] = students[j].score;
+	}
+
+	
+
 	return NULL;
 }
